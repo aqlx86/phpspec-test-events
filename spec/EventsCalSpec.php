@@ -39,14 +39,14 @@ class EventsCalSpec extends ObjectBehavior
 
     	$this->create($date, $event);
     	
-    	$this->hasEvent($date)->shouldReturn(true);
+    	$this->has_event($date)->shouldReturn(true);
     }
 
     public function it_has_no_event_on_this_date()
     {
     	$date = '2014-03-01';
 
-    	$this->hasEvent($date)->shouldReturn(false);
+    	$this->has_event($date)->shouldReturn(false);
     }
 
     public function it_should_have_empty_events()

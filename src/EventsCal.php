@@ -8,21 +8,21 @@ class EventsCal
 
     public function create($date, $event)
     {  		
-    	if($this->isValidDate($date) === false) 
+    	if($this->is_valid_date($date) === false) 
     	{
     		$this->error = 'Invalid Date.';
     		return false;
     	}
 
-    	if($this->hasEvent($date))
+    	if($this->has_event($date))
     		return false;
 
         $this->events[$date] = $event;
 
-    	return $this->hasEvent($date);
+    	return $this->has_event($date);
     }
 
-    public function hasEvent($date)
+    public function has_event($date)
     {
     	return isset($this->events[$date]);
     }
@@ -42,13 +42,13 @@ class EventsCal
     	return $this->error;
     }
 
-    private function isValidDate($date)
+    private function is_valid_date($date)
     {
     	$format = 'Y-m-d';
 
-    	$dateObject = DateTime::createFromFormat($format, $date);
+    	$date_object = DateTime::createFromFormat($format, $date);
 
-    	return $dateObject && $dateObject->format($format) == $date;
+    	return $date_object && $date_object->format($format) == $date;
     }
 
 
